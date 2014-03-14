@@ -17,11 +17,9 @@ real, parameter :: re = 6371
   t   = t0 - l * h
   rho = (p * m) / (r * t)
 
-  print *, 'Densidade: ',   rho,             ' kg/m**3'
-  print *, 'Temperatura: ', t_in_celcius(t), ' C'
-  print *, 'Pressao: ',     p,               ' Pa'
-
-  !h = 10000
+  print *, 'Density: ',     rho,             ' kg/m**3'
+  print *, 'Temperature: ', t_in_celcius(t), ' C'
+  print *, 'Pressure: ',    p,               ' Pa'
 
 contains
   real function t_in_celcius(t_in_kelvin) result (t)
