@@ -1,14 +1,14 @@
 # MAT01092 - Algoritmos e Programação I
 
 To run these applications you will need to install a Fortran compiler.
-If you don't have one, use [Homebrew](http://brew.sh/) to get one.
+If you don't have one, use [Homebrew](http://brew.sh/) to get it.
 
 ```shell
 brew update
 brew install gfortran
 ```
 
-And I expect that you use VIM, so...
+And I expect that you're using VIM, so...
 
 **~/.vimrc**
 ```vim
