@@ -1,24 +1,24 @@
 program pressao_atmosferica
 implicit none
 
-real :: rho, t, p, g, h
-real, parameter :: m  = .0289644
-real, parameter :: r  = 8.31447
-real, parameter :: p0 = 101325
-real, parameter :: t0 = 288.15
-real, parameter :: l  = .0065
-real, parameter :: re = 6371
+real :: rho, T, p, g, h
+real, parameter :: M  = .0289644 ! Molar mass of dry air
+real, parameter :: R  = 8.31447  ! Universal gas constant
+real, parameter :: p0 = 101325   ! Sea level standard atmospheric pressure
+real, parameter :: T0 = 288.15   ! Sea level standard temperature
+real, parameter :: L  = .0065    ! Temperature lapse rate
+real, parameter :: RE = 6371     ! Earth's mean radius
 	
-  !h = 0
-  h = 1000
+  print *, '# To calculate density/temperature/pressure I need a height(m):'
+  read  *, h
 
-  g   = 9.80665 * (re / (re + h)) ** 2
-  p   = p0 * (1 - (l * h) / t0) ** ((g * m) / (r * l))
-  t   = t0 - l * h
-  rho = (p * m) / (r * t)
+  g   = 9.80665 * (RE / (RE + h)) ** 2                 ! Earth gravitational acceleration
+  p   = p0 * (1 - (L * h) / T0) ** ((g * M) / (R * L)) ! Pressure
+  T   = T0 - L * h                                     ! Absolute temperature
+  rho = (p * M) / (R * T)                              ! Density of gas
 
-  print *, 'Density: ',     rho,             ' kg/m**3'
-  print *, 'Temperature: ', t_in_celcius(t), ' C'
+  print *, 'Density: ',     rho,             ' kg/m^3'
+  print *, 'Temperature: ', t_in_celcius(t), ' ºC'
   print *, 'Pressure: ',    p,               ' Pa'
 
 contains
